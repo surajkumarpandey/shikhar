@@ -315,6 +315,78 @@ export const SUBJECTS = [
           },
         ],
       },
+      {
+        id: "phygeo", highYield: 2,
+        name: { hi: "भारत का भौतिक भूगोल", en: "Physical Geography of India" },
+        source: { hi: "सत्यापित · NCERT व मानक संदर्भ", en: "Verified · NCERT & standard reference" },
+        note: {
+          hi: "भारत को प्रमुख भौतिक विभागों में बाँटा जाता है: उत्तर के हिमालय पर्वत, उत्तरी विशाल मैदान, प्रायद्वीपीय पठार, थार मरुस्थल, तटीय मैदान व द्वीप समूह। हिमालय सबसे नवीन वलित पर्वत है।",
+          en: "India is divided into major physical units: the Himalayas in the north, the Northern Plains, the Peninsular Plateau, the Thar Desert, the Coastal Plains and the Islands. The Himalayas are the youngest fold mountains.",
+        },
+        pyq: { hi: "भारत का सबसे नवीन वलित पर्वत कौन-सा है? (प्रीलिम्स 2017)", en: "Which is India's youngest fold mountain range? (Prelims 2017)" },
+        graph: ["Himalayas", "Northern Plains", "Peninsular Plateau", "Thar Desert", "Coastal Plains", "Islands"],
+        mcqs: [
+          {
+            q: { hi: "इनमें से सबसे नवीन वलित पर्वत कौन-सा है?", en: "Which of these is the youngest fold mountain?" },
+            opts: { hi: ["हिमालय", "अरावली", "विंध्य", "सतपुड़ा"], en: ["Himalayas", "Aravalli", "Vindhya", "Satpura"] }, a: 0,
+            ex: { hi: "हिमालय सबसे नवीन वलित पर्वत श्रृंखला है।", en: "The Himalayas are the youngest fold mountain range." },
+          },
+        ],
+      },
+      {
+        id: "climate", highYield: 3,
+        name: { hi: "भारत की जलवायु", en: "Climate of India" },
+        source: { hi: "सत्यापित · NCERT व मानक संदर्भ", en: "Verified · NCERT & standard reference" },
+        note: {
+          hi: "भारत में उष्णकटिबंधीय मानसूनी जलवायु है। अधिकांश वर्षा दक्षिण-पश्चिम मानसून (जून–सितम्बर) से होती है; लौटता (उत्तर-पूर्वी) मानसून अक्टूबर–दिसम्बर में तमिलनाडु जैसे क्षेत्रों को वर्षा देता है।",
+          en: "India has a tropical monsoon climate. Most rainfall comes from the south-west monsoon (June–September); the retreating (north-east) monsoon brings rain to areas like Tamil Nadu in October–December.",
+        },
+        pyq: { hi: "भारत में अधिकांश वार्षिक वर्षा किस मानसून से होती है? (प्रीलिम्स 2016)", en: "Most of India's annual rainfall comes from which monsoon? (Prelims 2016)" },
+        graph: ["SW Monsoon", "NE Monsoon", "Tropical monsoon", "Four seasons", "Retreating monsoon"],
+        mcqs: [
+          {
+            q: { hi: "भारत की अधिकांश वर्षा किससे होती है?", en: "Most of India's rainfall is brought by —" },
+            opts: { hi: ["दक्षिण-पश्चिम मानसून", "उत्तर-पूर्वी मानसून", "पश्चिमी विक्षोभ", "स्थानीय हवाएँ"], en: ["South-west monsoon", "North-east monsoon", "Western disturbances", "Local winds"] }, a: 0,
+            ex: { hi: "दक्षिण-पश्चिम मानसून (जून–सितम्बर) मुख्य वर्षा स्रोत है।", en: "The south-west monsoon (June–September) is the main rain source." },
+          },
+        ],
+      },
+      {
+        id: "ukclimate", highYield: 3,
+        name: { hi: "उत्तराखंड: जलवायु व वनस्पति", en: "Uttarakhand Climate & Vegetation" },
+        source: { hi: "सत्यापित · UK वन विभाग + मानक संदर्भ", en: "Verified · UK Forest Dept + standard reference" },
+        note: {
+          hi: "ऊँचाई के साथ उत्तराखंड की वनस्पति तराई-भाबर के उपोष्ण वनों से शीतोष्ण व अल्पाइन घास के मैदानों तक बदलती है; लगभग 65% भाग वनाच्छादित है। राज्य में 6 राष्ट्रीय उद्यान, 7 वन्यजीव अभयारण्य व 1 बायोस्फियर रिज़र्व (नंदा देवी) हैं। जिम कॉर्बेट भारत का पहला राष्ट्रीय उद्यान है; नंदा देवी व फूलों की घाटी यूनेस्को विश्व धरोहर हैं।",
+          en: "With altitude, Uttarakhand's vegetation shifts from subtropical Terai-Bhabar forests to temperate and alpine meadows; about 65% of the state is forested. It has 6 national parks, 7 wildlife sanctuaries and 1 biosphere reserve (Nanda Devi). Jim Corbett is India's first national park; Nanda Devi and the Valley of Flowers are UNESCO World Heritage Sites.",
+        },
+        pyq: { hi: "भारत का पहला राष्ट्रीय उद्यान किस राज्य में है? (प्रीलिम्स 2019)", en: "India's first national park is in which state? (Prelims 2019)" },
+        graph: ["Jim Corbett", "Nanda Devi Biosphere", "Valley of Flowers", "Alpine zone", "Terai-Bhabar", "Forest cover 65%"],
+        mcqs: [
+          {
+            q: { hi: "भारत का पहला राष्ट्रीय उद्यान (जिम कॉर्बेट) कहाँ स्थित है?", en: "India's first national park (Jim Corbett) is located in —" },
+            opts: { hi: ["उत्तराखंड", "हिमाचल प्रदेश", "असम", "मध्य प्रदेश"], en: ["Uttarakhand", "Himachal Pradesh", "Assam", "Madhya Pradesh"] }, a: 0,
+            ex: { hi: "जिम कॉर्बेट (1936) नैनीताल में, भारत का पहला राष्ट्रीय उद्यान है।", en: "Jim Corbett (1936), in Nainital, is India's first national park." },
+          },
+        ],
+      },
+      {
+        id: "hazards", highYield: 3,
+        name: { hi: "उत्तराखंड में प्राकृतिक आपदाएँ", en: "Natural Hazards in Uttarakhand" },
+        source: { hi: "सत्यापित · वैज्ञानिक रिपोर्ट + मानक संदर्भ", en: "Verified · scientific reports + standard reference" },
+        note: {
+          hi: "उत्तराखंड भूकंपीय ज़ोन IV–V में आता है; 1991 उत्तरकाशी व 1999 चमोली भूकंप इसके उदाहरण हैं। राज्य में भूस्खलन, बादल फटना, आकस्मिक बाढ़ (2013 केदारनाथ), हिमनद-झील विस्फोट/हिमस्खलन (2021 चमोली-ऋषिगंगा) व भू-धंसाव (2023 जोशीमठ) जैसी आपदाएँ बार-बार होती हैं। नाज़ुक भूविज्ञान व अनियोजित निर्माण इन्हें बढ़ाते हैं।",
+          en: "Uttarakhand lies in seismic zones IV–V; the 1991 Uttarkashi and 1999 Chamoli earthquakes are examples. The state sees recurrent landslides, cloudbursts, flash floods (2013 Kedarnath), glacial-lake/avalanche floods (2021 Chamoli-Rishiganga) and land subsidence (2023 Joshimath). Fragile geology and unplanned construction worsen them.",
+        },
+        pyq: { hi: "2013 की बाढ़ आपदा ने किस तीर्थ नगर को तबाह किया? (प्रीलिम्स 2018)", en: "The 2013 flood disaster devastated which shrine town? (Prelims 2018)" },
+        graph: ["Seismic zone IV-V", "Kedarnath 2013", "Chamoli 2021", "Joshimath 2023", "Cloudburst", "Landslide"],
+        mcqs: [
+          {
+            q: { hi: "2013 की आकस्मिक बाढ़ आपदा ने मुख्यतः किस नगर को तबाह किया?", en: "The 2013 flash-flood disaster mainly devastated which town?" },
+            opts: { hi: ["केदारनाथ", "बद्रीनाथ", "गंगोत्री", "यमुनोत्री"], en: ["Kedarnath", "Badrinath", "Gangotri", "Yamunotri"] }, a: 0,
+            ex: { hi: "जून 2013 की केदारनाथ आपदा में हज़ारों की मृत्यु हुई।", en: "The June 2013 Kedarnath disaster killed thousands." },
+          },
+        ],
+      },
     ],
   },
   {
@@ -381,12 +453,12 @@ export const SYLLABUS_TREE = [
     { id: "statehood", ready: true, name: { hi: "उत्तराखंड राज्य आंदोलन", en: "Uttarakhand Statehood Movement" }, highYield: 3 },
   ] },
   { id: "geo", icon: "🗺", name: { hi: "भूगोल", en: "Geography" }, topics: [
-    { id: "phygeo", name: { hi: "भारत का भौतिक भूगोल", en: "Physical Geography of India" } },
-    { id: "climate", name: { hi: "भारत की जलवायु", en: "Climate of India" } },
+    { id: "phygeo", ready: true, name: { hi: "भारत का भौतिक भूगोल", en: "Physical Geography of India" } },
+    { id: "climate", ready: true, name: { hi: "भारत की जलवायु", en: "Climate of India" }, highYield: 3 },
     { id: "rivers", ready: true, name: { hi: "उत्तराखंड की नदियाँ", en: "Rivers of Uttarakhand" }, highYield: 5 },
     { id: "districts", ready: true, name: { hi: "ज़िले व उच्चावच", en: "Districts & Relief" } },
-    { id: "ukclimate", name: { hi: "उत्तराखंड: जलवायु व वनस्पति", en: "Uttarakhand Climate & Vegetation" } },
-    { id: "hazards", name: { hi: "उत्तराखंड में प्राकृतिक आपदाएँ", en: "Natural Hazards in Uttarakhand" }, highYield: 3 },
+    { id: "ukclimate", ready: true, name: { hi: "उत्तराखंड: जलवायु व वनस्पति", en: "Uttarakhand Climate & Vegetation" }, highYield: 3 },
+    { id: "hazards", ready: true, name: { hi: "उत्तराखंड में प्राकृतिक आपदाएँ", en: "Natural Hazards in Uttarakhand" }, highYield: 3 },
   ] },
   { id: "pol", icon: "⚖️", name: { hi: "राजव्यवस्था व शासन", en: "Polity & Governance" }, topics: [
     { id: "constitution", name: { hi: "भारतीय संविधान", en: "Indian Constitution" }, highYield: 3 },
@@ -465,6 +537,22 @@ export const ENTITY_INFO = {
   "Srinagar (Garhwal)": { hi: "पंवार शासन की राजधानी।", en: "Capital of Panwar rule in Garhwal." },
   "Treaty of Sugauli 1816": { hi: "गोरखा शासन समाप्त; कुमाऊँ अंग्रेज़ों को मिला।", en: "Ended Gorkha rule; Kumaon passed to the British." },
   "Anglo-Nepalese War": { hi: "1814–16 का युद्ध जिसने गोरखा विस्तार रोका।", en: "The 1814–16 war that checked Gorkha expansion." },
+  "Himalayas": { hi: "भारत की सबसे नवीन व ऊँची वलित पर्वत श्रृंखला।", en: "India's youngest and highest fold mountain range." },
+  "Northern Plains": { hi: "सिंधु-गंगा-ब्रह्मपुत्र द्वारा बना उपजाऊ मैदान।", en: "Fertile plains built by the Indus, Ganga and Brahmaputra." },
+  "Peninsular Plateau": { hi: "प्राचीन कठोर चट्टानों का दक्षिणी पठार।", en: "The old, hard-rock plateau of southern India." },
+  "Thar Desert": { hi: "उत्तर-पश्चिम भारत का शुष्क मरुस्थल।", en: "The arid desert of north-west India." },
+  "SW Monsoon": { hi: "जून–सितम्बर; भारत की अधिकांश वर्षा का स्रोत।", en: "June–September; source of most of India's rainfall." },
+  "NE Monsoon": { hi: "लौटता मानसून; तमिलनाडु को वर्षा देता है।", en: "The retreating monsoon; brings rain to Tamil Nadu." },
+  "Jim Corbett": { hi: "1936 में स्थापित भारत का पहला राष्ट्रीय उद्यान, नैनीताल।", en: "India's first national park (1936), in Nainital." },
+  "Nanda Devi Biosphere": { hi: "यूनेस्को मान्यता प्राप्त बायोस्फियर रिज़र्व।", en: "A UNESCO-recognised biosphere reserve." },
+  "Valley of Flowers": { hi: "अल्पाइन फूलों के लिए प्रसिद्ध यूनेस्को धरोहर।", en: "UNESCO site famed for its alpine flowers." },
+  "Terai-Bhabar": { hi: "हिमालय की तलहटी का उपोष्ण वन-पट्टी क्षेत्र।", en: "The subtropical forest belt at the Himalayan foothills." },
+  "Alpine zone": { hi: "वृक्ष-रेखा के ऊपर के घास के मैदान।", en: "High meadows above the tree line." },
+  "Seismic zone IV-V": { hi: "उच्च भूकंपीय जोखिम वाला क्षेत्र।", en: "A high earthquake-risk zone." },
+  "Kedarnath 2013": { hi: "जून 2013 की विनाशकारी बाढ़ आपदा।", en: "The catastrophic flood disaster of June 2013." },
+  "Chamoli 2021": { hi: "ऋषिगंगा-धौलीगंगा में हिमस्खलन-जनित आकस्मिक बाढ़।", en: "Avalanche-triggered flash flood on the Rishiganga-Dhauliganga." },
+  "Joshimath 2023": { hi: "2023 का भू-धंसाव संकट।", en: "The 2023 land-subsidence crisis." },
+  "Cloudburst": { hi: "अचानक तीव्र वर्षा जो बाढ़/भूस्खलन लाती है।", en: "Sudden intense rain that triggers floods/landslides." },
 };
 
 export const topicById = (id) => {
