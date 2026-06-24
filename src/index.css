@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&display=swap');
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body, #root { margin: 0; height: 100%; }
+body { font-family: "Mukta", system-ui, sans-serif; background: #f3efe6; }
+::-webkit-scrollbar { width: 0; }
