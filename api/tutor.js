@@ -1,6 +1,7 @@
 // Serverless function (Vercel/Netlify). Keeps your API key OFF the client.
 // Default: Google Gemini free tier. Get a key at https://aistudio.google.com/apikey
-// To swap providers, replace the fetch below (e.g. Groq's OpenAI-compatible endpoint).
+// NOTE: model names change. If the tutor stops working, check the current model
+// at https://ai.google.dev/gemini-api/docs/models and set TUTOR_MODEL.
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -11,10 +12,10 @@ export default async function handler(req, res) {
     const { lang, context, messages } = req.body || {};
     const key = process.env.GEMINI_API_KEY;
     if (!key) {
-      res.status(500).json({ error: "Missing GEMINI_API_KEY env var" });
+      res.status(200).json({ error: "Server is missing GEMINI_API_KEY. Add it in your host's Environment Variables and redeploy." });
       return;
     }
-    const model = process.env.TUTOR_MODEL || "gemini-2.0-flash";
+    const model = process.env.TUTOR_MODEL || "gemini-2.5-flash";
 
     const system =
       "You are a calm, accurate UKPCS (Uttarakhand PCS) exam tutor. Reply " +
@@ -39,10 +40,23 @@ export default async function handler(req, res) {
       }),
     });
     const data = await r.json();
-    const text =
-      data?.candidates?.[0]?.content?.parts?.map((p) => p.text).join("") || "";
+
+    if (!r.ok) {
+      const msg = data && data.error && data.error.message ? data.error.message : "HTTP " + r.status;
+      res.status(200).json({ error: msg + " (model: " + model + ")" });
+      return;
+    }
+    const cand = data && data.candidates && data.candidates[0];
+    const text = cand && cand.content && cand.content.parts
+      ? cand.content.parts.map((p) => p.text).filter(Boolean).join("")
+      : "";
+    if (!text) {
+      const fr = cand && cand.finishReason ? " (finishReason: " + cand.finishReason + ")" : "";
+      res.status(200).json({ error: "Empty response from model" + fr });
+      return;
+    }
     res.status(200).json({ text });
   } catch (e) {
-    res.status(500).json({ error: "Tutor request failed" });
+    res.status(200).json({ error: "Tutor request failed: " + (e && e.message ? e.message : "unknown") });
   }
 }
