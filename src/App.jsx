@@ -20,13 +20,26 @@ const STATUS = {
   revised: { hi: "रिवाइज़", en: "Revised", color: C.pine, text: "#fff" },
 };
 
+function loadState() {
+  try { return JSON.parse(localStorage.getItem("shikhar_state") || "{}"); } catch (e) { return {}; }
+}
+function saveState(s) {
+  try { localStorage.setItem("shikhar_state", JSON.stringify(s)); } catch (e) {}
+}
+const SAVED = loadState();
+
 export default function App() {
-  const [lang, setLang] = useState(null);
+  const [lang, setLang] = useState(SAVED.lang || null);
+  const [name, setName] = useState(SAVED.name || "");
+  const [examDate, setExamDate] = useState(SAVED.examDate || "");
+  const [onboarded, setOnboarded] = useState(!!SAVED.examDate);
   const [tab, setTab] = useState("home");
   const [topic, setTopic] = useState(null); // topic id for detail
   const [quiz, setQuiz] = useState(null); // {topicId} or {mixed:true}
   const [tutor, setTutor] = useState(null); // {context, title} when AI tutor open
-  const [coverage, setCoverage] = useState({ chipko: "revised", rivers: "learning" });
+  const [coverage, setCoverage] = useState(SAVED.coverage || {});
+
+  useEffect(() => { saveState({ lang, name, examDate, coverage }); }, [lang, name, examDate, coverage]);
 
   useEffect(() => {
     const id = "mukta-font";
@@ -66,6 +79,10 @@ export default function App() {
         </div>
       </div>
     );
+  }
+
+  if (!onboarded) {
+    return <Onboarding L={L} name={name} setName={setName} examDate={examDate} setExamDate={setExamDate} onDone={() => setOnboarded(true)} />;
   }
 
   const go = (setter, v) => { setter(v); };
@@ -113,7 +130,7 @@ export default function App() {
                 onAsk={(ctx) => setTutor(ctx)} />
             : quiz
             ? <Quiz L={L} quiz={quiz} onExit={() => setQuiz(null)} />
-            : tab === "home" ? <HomeTab L={L} setTab={setTab} setTopic={setTopic} coverage={coverage} />
+            : tab === "home" ? <HomeTab L={L} setTab={setTab} setTopic={setTopic} coverage={coverage} name={name} examDate={examDate} onEditDate={() => setOnboarded(false)} />
             : tab === "syllabus" ? <SyllabusTab L={L} coverage={coverage} setTopic={setTopic} />
             : tab === "practice" ? <PracticeTab L={L} setQuiz={setQuiz} onAsk={(ctx) => setTutor(ctx)} />
             : <ProgressTab L={L} coverage={coverage} />}
@@ -144,24 +161,84 @@ export default function App() {
 }
 
 // ---------- Home ----------
-function HomeTab({ L, setTab, setTopic, coverage }) {
+function Onboarding({ L, name, setName, examDate, setExamDate, onDone }) {
+  return (
+    <div style={{ minHeight: "100vh", background: C.stone, fontFamily: "Mukta, system-ui, sans-serif", color: C.ink }}>
+      <Style />
+      <div style={{ maxWidth: 440, margin: "0 auto", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+        <div style={{ background: C.pine, color: C.stone, padding: "24px 20px", position: "relative", overflow: "hidden" }}>
+          <Contour />
+          <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 10 }}>
+            <Peak size={28} color={C.marigoldSoft} />
+            <div style={{ fontSize: 22, fontWeight: 800 }}>{L === "hi" ? "चलिए शुरू करें" : "Let's set you up"}</div>
+          </div>
+        </div>
+        <div style={{ padding: 20, flex: 1 }}>
+          <label style={{ fontSize: 13, fontWeight: 700 }}>{L === "hi" ? "आपका नाम (वैकल्पिक)" : "Your name (optional)"}</label>
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder={L === "hi" ? "नाम" : "Name"}
+            style={{ width: "100%", marginTop: 6, marginBottom: 18, border: `1.5px solid ${C.line}`, borderRadius: 12,
+              padding: "12px 14px", fontSize: 15, fontFamily: "Mukta, sans-serif", outline: "none", background: C.card }} />
+          <label style={{ fontSize: 13, fontWeight: 700 }}>{L === "hi" ? "आपकी परीक्षा कब है?" : "When is your exam?"}</label>
+          <input type="date" value={examDate} onChange={(e) => setExamDate(e.target.value)}
+            style={{ width: "100%", marginTop: 6, border: `1.5px solid ${C.line}`, borderRadius: 12,
+              padding: "12px 14px", fontSize: 15, fontFamily: "Mukta, sans-serif", outline: "none", background: C.card }} />
+          <div style={{ fontSize: 12, color: C.inkSoft, marginTop: 8 }}>
+            {L === "hi" ? "हम आपकी दैनिक योजना इसी तिथि के अनुसार बनाएँगे।" : "We'll pace your daily plan to this date."}
+          </div>
+          <button onClick={onDone} disabled={!examDate} style={{ ...btnPrimary, opacity: examDate ? 1 : 0.5, marginTop: 28 }}>
+            {L === "hi" ? "शुरू करें" : "Start"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HomeTab({ L, setTab, setTopic, coverage, name, examDate, onEditDate }) {
   const [mode, setMode] = useState("today");
+
+  const readyOrdered = SYLLABUS_TREE.flatMap((s) => s.topics.filter((tp) => tp.ready).map((tp) => ({ ...tp, sub: s })));
+  const nextIdx = readyOrdered.findIndex((tp) => coverage[tp.id] !== "revised");
+  const nextTopic = nextIdx === -1 ? null : readyOrdered[nextIdx];
+  const inProgress = readyOrdered.find((tp) => coverage[tp.id] === "learning");
+  const started = Object.keys(coverage).length > 0;
+
+  const plan = [];
+  if (nextTopic) {
+    plan.push({
+      tid: nextTopic.id,
+      txt: (started ? (L === "hi" ? "आगे: " : "Next: ") : (L === "hi" ? "शुरू करें: " : "Begin: ")) + nextTopic.name[L],
+      tag: L === "hi" ? "क्रम के अनुसार" : "next in sequence",
+    });
+  }
+  if (inProgress && (!nextTopic || inProgress.id !== nextTopic.id)) {
+    plan.push({ tid: inProgress.id, txt: (L === "hi" ? "रिवाइज़ करें: " : "Revise: ") + inProgress.name[L], tag: t("weak", L) });
+  }
+  if (!nextTopic && !inProgress && readyOrdered[0]) {
+    plan.push({ tid: readyOrdered[0].id, txt: L === "hi" ? "रिवीज़न जारी रखें" : "Keep revising", tag: t("standard", L) });
+  }
+
+  const days = examDate ? Math.max(0, Math.ceil((new Date(examDate) - new Date()) / 86400000)) : null;
+
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 12 }}>
         <div>
-          <div style={{ fontSize: 13, color: C.inkSoft }}>{L === "hi" ? "नमस्ते, सुरज" : "Hello, Suraj"}</div>
+          <div style={{ fontSize: 13, color: C.inkSoft }}>{(L === "hi" ? "नमस्ते" : "Hello") + (name ? ", " + name : "")}</div>
           <div style={{ fontSize: 22, fontWeight: 800 }}>{L === "hi" ? "आज की तैयारी" : "Today's prep"}</div>
         </div>
-        <Pill color={C.marigold} text="#3a2706"><b style={{ fontSize: 16 }}>112</b>&nbsp;{t("daysLeft", L)}</Pill>
+        <button onClick={onEditDate} style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}>
+          {days !== null
+            ? <Pill color={C.marigold} text="#3a2706"><b style={{ fontSize: 16 }}>{days}</b>&nbsp;{t("daysLeft", L)}</Pill>
+            : <Pill color={C.line} text={C.inkSoft}>{L === "hi" ? "परीक्षा तिथि चुनें" : "Set exam date"}</Pill>}
+        </button>
       </div>
 
       <div style={{ display: "flex", gap: 6, background: "#e9e3d6", borderRadius: 12, padding: 4, marginBottom: 14 }}>
         {[["today", t("planMode", L)], ["journey", t("journey", L)]].map(([m, label]) => (
           <button key={m} onClick={() => setMode(m)}
             style={{ flex: 1, background: mode === m ? C.pine : "transparent", color: mode === m ? C.stone : C.inkSoft,
-              border: "none", borderRadius: 9, padding: "9px", fontSize: 14, fontWeight: 700, cursor: "pointer",
-              fontFamily: "Mukta, sans-serif" }}>
+              border: "none", borderRadius: 9, padding: "9px", fontSize: 14, fontWeight: 700, cursor: "pointer", fontFamily: "Mukta, sans-serif" }}>
             {label}
           </button>
         ))}
@@ -172,11 +249,8 @@ function HomeTab({ L, setTab, setTopic, coverage }) {
       ) : (
         <>
           <Card title={t("todayPlan", L)} icon={<Sparkles size={16} color={C.marigold} />}>
-            {[
-              { tid: "chipko", txt: L === "hi" ? "चिपको आंदोलन रिवाइज़ करें" : "Revise Chipko Movement", tag: t("weak", L) },
-              { tid: "rivers", txt: L === "hi" ? "10 ड्यू MCQ (स्पेस्ड रिपीटिशन)" : "10 due MCQs (spaced repetition)", tag: t("standard", L) },
-            ].map((it) => (
-              <Row key={it.tid} onClick={() => setTopic(it.tid)}>
+            {plan.map((it) => (
+              <Row key={it.tid} onClick={() => it.tid && setTopic(it.tid)}>
                 <div>
                   <div style={{ fontWeight: 600 }}>{it.txt}</div>
                   <div style={{ fontSize: 12, color: C.glacier }}>{t("whyHere", L)}: {it.tag}</div>
@@ -561,7 +635,7 @@ function ProgressTab({ L, coverage }) {
               {L === "hi" ? `${totalTopics} में से ${readyTopics.length} विषयों में सामग्री` : `${readyTopics.length} of ${totalTopics} topics have content`}
             </div>
           </div>
-          <Pill color={C.marigold} text="#3a2706"><Flame size={14} /> &nbsp;7 {t("streak", L)}</Pill>
+          <span />
         </div>
         <Bar pct={pct} />
       </Card>
@@ -610,7 +684,8 @@ function AITutor({ L, context, title, onExit }) {
       });
       const data = await res.json();
       const txt = (data.text || "").trim();
-      setMessages([...next, { role: "assistant", content: txt || (L === "hi" ? "उत्तर नहीं मिला।" : "No answer came back.") }]);
+      const reply = txt || data.error || (L === "hi" ? "उत्तर नहीं मिला।" : "No answer came back.");
+      setMessages([...next, { role: "assistant", content: reply }]);
     } catch (e) {
       setMessages([...next, { role: "assistant", content: L === "hi" ? "नेटवर्क त्रुटि — पुनः प्रयास करें।" : "Network error — please try again." }]);
     } finally {
