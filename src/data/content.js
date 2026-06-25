@@ -410,6 +410,120 @@ export const SUBJECTS = [
           },
         ],
       },
+      {
+        id: "constitution", highYield: 4,
+        name: { hi: "भारतीय संविधान", en: "Indian Constitution" },
+        source: { hi: "सत्यापित · NCERT व मानक संदर्भ", en: "Verified · NCERT & standard reference" },
+        note: {
+          hi: "संविधान सभा ने भारतीय संविधान को 26 नवम्बर 1949 को अंगीकृत किया और यह 26 जनवरी 1950 को लागू हुआ। प्रारूप समिति के अध्यक्ष डॉ. बी.आर. अंबेडकर थे। यह विश्व का सबसे लंबा लिखित संविधान है, जिसकी शुरुआत प्रस्तावना से होती है।",
+          en: "The Constituent Assembly adopted the Constitution on 26 November 1949 and it came into force on 26 January 1950. Dr. B.R. Ambedkar chaired the Drafting Committee. It is the world's longest written constitution, opening with the Preamble.",
+        },
+        pyq: { hi: "भारतीय संविधान किस तिथि को लागू हुआ? (प्रीलिम्स 2016)", en: "On which date did the Constitution come into force? (Prelims 2016)" },
+        graph: ["Constituent Assembly", "B.R. Ambedkar", "26 Jan 1950", "26 Nov 1949", "Preamble", "Drafting Committee"],
+        mcqs: [
+          {
+            q: { hi: "भारतीय संविधान किस तिथि को लागू हुआ?", en: "On which date did the Indian Constitution come into force?" },
+            opts: { hi: ["26 जनवरी 1950", "15 अगस्त 1947", "26 नवम्बर 1949", "26 जनवरी 1949"], en: ["26 Jan 1950", "15 Aug 1947", "26 Nov 1949", "26 Jan 1949"] }, a: 0,
+            ex: { hi: "26 नवम्बर 1949 को अंगीकृत; 26 जनवरी 1950 को लागू।", en: "Adopted 26 Nov 1949; came into force 26 Jan 1950." },
+          },
+        ],
+      },
+      {
+        id: "fr", highYield: 4,
+        name: { hi: "मौलिक अधिकार", en: "Fundamental Rights" },
+        source: { hi: "सत्यापित · NCERT व मानक संदर्भ", en: "Verified · NCERT & standard reference" },
+        note: {
+          hi: "मौलिक अधिकार संविधान के भाग III (अनुच्छेद 12–35) में हैं और न्यायालय में प्रवर्तनीय हैं। छह श्रेणियाँ: समानता, स्वतंत्रता, शोषण के विरुद्ध, धार्मिक स्वतंत्रता, सांस्कृतिक-शैक्षिक, व संवैधानिक उपचार। अनुच्छेद 32 को अंबेडकर ने संविधान की 'आत्मा' कहा।",
+          en: "Fundamental Rights are in Part III (Articles 12–35) and are enforceable in court. Six categories: Equality, Freedom, Against Exploitation, Freedom of Religion, Cultural & Educational, and Constitutional Remedies. Ambedkar called Article 32 the 'heart and soul' of the Constitution.",
+        },
+        pyq: { hi: "संवैधानिक उपचार का अधिकार किस अनुच्छेद में है? (प्रीलिम्स 2018)", en: "Right to Constitutional Remedies is under which article? (Prelims 2018)" },
+        graph: ["Part III", "Article 32", "Right to Equality", "Right to Freedom", "Article 14", "Against Exploitation"],
+        mcqs: [
+          {
+            q: { hi: "किस अनुच्छेद को संविधान की 'आत्मा' कहा जाता है?", en: "Which article is called the 'heart and soul' of the Constitution?" },
+            opts: { hi: ["अनुच्छेद 32", "अनुच्छेद 21", "अनुच्छेद 14", "अनुच्छेद 19"], en: ["Article 32", "Article 21", "Article 14", "Article 19"] }, a: 0,
+            ex: { hi: "अनुच्छेद 32 (संवैधानिक उपचार) को अंबेडकर ने 'आत्मा' कहा।", en: "Ambedkar called Article 32 (Constitutional Remedies) the soul." },
+          },
+        ],
+      },
+      {
+        id: "parliament", highYield: 3,
+        name: { hi: "संसद व विधानमंडल", en: "Parliament & Legislature" },
+        source: { hi: "सत्यापित · NCERT व मानक संदर्भ", en: "Verified · NCERT & standard reference" },
+        note: {
+          hi: "भारत की संसद द्विसदनीय है: लोक सभा (निम्न सदन, प्रत्यक्ष निर्वाचित) व राज्य सभा (उच्च सदन, राज्यों का परिषद)। राष्ट्रपति भी संसद का अंग है। धन विधेयक केवल लोक सभा में प्रस्तुत होते हैं। राज्यों में भी इसी प्रकार विधानमंडल होते हैं।",
+          en: "India's Parliament is bicameral: the Lok Sabha (lower house, directly elected) and the Rajya Sabha (upper house, council of states). The President is also part of Parliament. Money bills can be introduced only in the Lok Sabha. States have similar legislatures.",
+        },
+        pyq: { hi: "भारतीय संसद का उच्च सदन कौन-सा है? (प्रीलिम्स 2017)", en: "Which is the upper house of India's Parliament? (Prelims 2017)" },
+        graph: ["Lok Sabha", "Rajya Sabha", "President", "Money Bill", "Bicameral", "State Legislature"],
+        mcqs: [
+          {
+            q: { hi: "भारतीय संसद का उच्च सदन कौन-सा है?", en: "Which is the upper house of India's Parliament?" },
+            opts: { hi: ["राज्य सभा", "लोक सभा", "विधान सभा", "विधान परिषद"], en: ["Rajya Sabha", "Lok Sabha", "Vidhan Sabha", "Vidhan Parishad"] }, a: 0,
+            ex: { hi: "राज्य सभा उच्च सदन (राज्यों का परिषद) है।", en: "The Rajya Sabha is the upper house (council of states)." },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "economy", icon: "📈",
+    name: { hi: "अर्थव्यवस्था", en: "Economy" },
+    topics: [
+      {
+        id: "ecobasics", highYield: 2,
+        name: { hi: "भारतीय अर्थव्यवस्था: आधार", en: "Indian Economy Basics" },
+        source: { hi: "सत्यापित · NCERT व मानक संदर्भ", en: "Verified · NCERT & standard reference" },
+        note: {
+          hi: "भारत एक मिश्रित अर्थव्यवस्था है, जो तीन क्षेत्रों में बँटी है: प्राथमिक (कृषि), द्वितीयक (उद्योग) व तृतीयक (सेवा)। सेवा क्षेत्र जीडीपी में सबसे बड़ा योगदान देता है। पहले पंचवर्षीय योजनाएँ चलती थीं; अब नीति आयोग नीति-निर्धारण करता है।",
+          en: "India is a mixed economy split into three sectors: primary (agriculture), secondary (industry) and tertiary (services). The services sector contributes the largest share of GDP. Five-Year Plans guided planning earlier; NITI Aayog now sets policy direction.",
+        },
+        pyq: { hi: "भारत के जीडीपी में सबसे बड़ा योगदान किस क्षेत्र का है? (प्रीलिम्स 2017)", en: "Which sector contributes the largest share of India's GDP? (Prelims 2017)" },
+        graph: ["Primary sector", "Secondary sector", "Tertiary sector", "Mixed economy", "NITI Aayog", "GDP"],
+        mcqs: [
+          {
+            q: { hi: "भारत के जीडीपी में सबसे बड़ा योगदान किस क्षेत्र का है?", en: "Which sector contributes the largest share of India's GDP?" },
+            opts: { hi: ["सेवा क्षेत्र", "कृषि", "उद्योग", "खनन"], en: ["Services", "Agriculture", "Industry", "Mining"] }, a: 0,
+            ex: { hi: "तृतीयक (सेवा) क्षेत्र का योगदान सबसे बड़ा है।", en: "The tertiary (services) sector has the largest share." },
+          },
+        ],
+      },
+      {
+        id: "banking", highYield: 3,
+        name: { hi: "बैंकिंग व राजकोषीय नीति", en: "Banking & Fiscal Policy" },
+        source: { hi: "सत्यापित · मानक संदर्भ", en: "Verified · standard reference" },
+        note: {
+          hi: "भारतीय रिज़र्व बैंक (RBI) देश का केंद्रीय बैंक है और रेपो दर जैसे उपकरणों से मौद्रिक नीति चलाकर मुद्रास्फीति व मुद्रा-आपूर्ति को नियंत्रित करता है। राजकोषीय नीति (कराधान व व्यय) सरकार द्वारा केंद्रीय बजट के माध्यम से तय होती है — यानी मौद्रिक = RBI, राजकोषीय = सरकार।",
+          en: "The Reserve Bank of India (RBI) is the central bank and runs monetary policy — controlling inflation and money supply through tools like the repo rate. Fiscal policy (taxation and spending) is set by the government via the Union Budget — so monetary = RBI, fiscal = government.",
+        },
+        pyq: { hi: "भारत की मौद्रिक नीति कौन-सी संस्था संचालित करती है? (प्रीलिम्स 2018)", en: "Which body conducts India's monetary policy? (Prelims 2018)" },
+        graph: ["RBI", "Monetary policy", "Repo rate", "Fiscal policy", "Union Budget", "Inflation"],
+        mcqs: [
+          {
+            q: { hi: "भारत की मौद्रिक नीति किसके द्वारा संचालित होती है?", en: "India's monetary policy is conducted by —" },
+            opts: { hi: ["RBI", "SEBI", "वित्त मंत्रालय", "नीति आयोग"], en: ["RBI", "SEBI", "Finance Ministry", "NITI Aayog"] }, a: 0,
+            ex: { hi: "RBI मौद्रिक नीति का संचालक है; राजकोषीय नीति सरकार की होती है।", en: "The RBI runs monetary policy; fiscal policy is the government's." },
+          },
+        ],
+      },
+      {
+        id: "ukeco", highYield: 3,
+        name: { hi: "उत्तराखंड अर्थव्यवस्था व बजट", en: "Uttarakhand Economy & Budget" },
+        source: { hi: "सत्यापित · IBEF/PRS राज्य बजट + मानक संदर्भ", en: "Verified · IBEF/PRS state budget + standard reference" },
+        note: {
+          hi: "उत्तराखंड की अर्थव्यवस्था के मुख्य स्तंभ हैं: पर्यटन (चार धाम, हिल स्टेशन), जलविद्युत, व पर्वतीय कृषि-बागवानी (सेब, फल, सुगंधित व औषधीय पौधे/आयुष); MSME, IT व फार्मा बढ़ रहे हैं। लगभग 86% भाग पर्वतीय है। 2025-26 के लिए GSDP लगभग ₹4.3 लाख करोड़ अनुमानित; राज्य बजट लगभग ₹1.01 लाख करोड़ था।",
+          en: "Uttarakhand's economy rests on tourism (Char Dham, hill stations), hydropower, and hill agriculture-horticulture (apples, fruits, aromatic & medicinal plants/AYUSH); MSME, IT and pharma are growing. About 86% of the state is hilly. GSDP for 2025-26 is projected near ₹4.3 lakh crore; the state budget was about ₹1.01 lakh crore.",
+        },
+        pyq: { hi: "उत्तराखंड की अर्थव्यवस्था के दो प्रमुख स्तंभ बताइए। (मेन्स GS-III)", en: "Name two main pillars of Uttarakhand's economy. (Mains GS-III)" },
+        graph: ["Tourism", "Hydropower", "Horticulture", "MSME", "Char Dham", "GSDP 4.3 lakh cr"],
+        mcqs: [
+          {
+            q: { hi: "इनमें से कौन उत्तराखंड की अर्थव्यवस्था का प्रमुख स्तंभ है?", en: "Which of these is a key pillar of Uttarakhand's economy?" },
+            opts: { hi: ["पर्यटन", "समुद्री मत्स्यन", "कोयला खनन", "चाय बागान"], en: ["Tourism", "Marine fishing", "Coal mining", "Tea plantations"] }, a: 0,
+            ex: { hi: "पर्यटन, जलविद्युत व बागवानी राज्य के मुख्य स्तंभ हैं।", en: "Tourism, hydropower and horticulture are the state's main pillars." },
+          },
+        ],
+      },
     ],
   },
 ];
@@ -461,15 +575,15 @@ export const SYLLABUS_TREE = [
     { id: "hazards", ready: true, name: { hi: "उत्तराखंड में प्राकृतिक आपदाएँ", en: "Natural Hazards in Uttarakhand" }, highYield: 3 },
   ] },
   { id: "pol", icon: "⚖️", name: { hi: "राजव्यवस्था व शासन", en: "Polity & Governance" }, topics: [
-    { id: "constitution", name: { hi: "भारतीय संविधान", en: "Indian Constitution" }, highYield: 3 },
-    { id: "fr", name: { hi: "मौलिक अधिकार", en: "Fundamental Rights" }, highYield: 3 },
-    { id: "parliament", name: { hi: "संसद व विधानमंडल", en: "Parliament & Legislature" } },
+    { id: "constitution", ready: true, name: { hi: "भारतीय संविधान", en: "Indian Constitution" }, highYield: 4 },
+    { id: "fr", ready: true, name: { hi: "मौलिक अधिकार", en: "Fundamental Rights" }, highYield: 4 },
+    { id: "parliament", ready: true, name: { hi: "संसद व विधानमंडल", en: "Parliament & Legislature" }, highYield: 3 },
     { id: "panchayat", ready: true, name: { hi: "उत्तराखंड में पंचायती राज", en: "Panchayati Raj in Uttarakhand" } },
   ] },
   { id: "eco", icon: "📈", name: { hi: "अर्थव्यवस्था", en: "Economy" }, topics: [
-    { id: "ecobasics", name: { hi: "भारतीय अर्थव्यवस्था: आधार", en: "Indian Economy Basics" } },
-    { id: "banking", name: { hi: "बैंकिंग व राजकोषीय नीति", en: "Banking & Fiscal Policy" } },
-    { id: "ukeco", name: { hi: "उत्तराखंड अर्थव्यवस्था व बजट", en: "Uttarakhand Economy & Budget" }, highYield: 3 },
+    { id: "ecobasics", ready: true, name: { hi: "भारतीय अर्थव्यवस्था: आधार", en: "Indian Economy Basics" }, highYield: 2 },
+    { id: "banking", ready: true, name: { hi: "बैंकिंग व राजकोषीय नीति", en: "Banking & Fiscal Policy" }, highYield: 3 },
+    { id: "ukeco", ready: true, name: { hi: "उत्तराखंड अर्थव्यवस्था व बजट", en: "Uttarakhand Economy & Budget" }, highYield: 3 },
   ] },
   { id: "sci", icon: "🔬", name: { hi: "विज्ञान, तकनीक व पर्यावरण", en: "Science, Tech & Environment" }, topics: [
     { id: "science", name: { hi: "दैनिक विज्ञान", en: "Everyday Science" } },
@@ -553,6 +667,29 @@ export const ENTITY_INFO = {
   "Chamoli 2021": { hi: "ऋषिगंगा-धौलीगंगा में हिमस्खलन-जनित आकस्मिक बाढ़।", en: "Avalanche-triggered flash flood on the Rishiganga-Dhauliganga." },
   "Joshimath 2023": { hi: "2023 का भू-धंसाव संकट।", en: "The 2023 land-subsidence crisis." },
   "Cloudburst": { hi: "अचानक तीव्र वर्षा जो बाढ़/भूस्खलन लाती है।", en: "Sudden intense rain that triggers floods/landslides." },
+  "Constituent Assembly": { hi: "जिसने भारतीय संविधान का निर्माण किया।", en: "The body that framed the Indian Constitution." },
+  "B.R. Ambedkar": { hi: "प्रारूप समिति के अध्यक्ष; संविधान के प्रमुख शिल्पी।", en: "Chair of the Drafting Committee; chief architect of the Constitution." },
+  "26 Jan 1950": { hi: "संविधान लागू होने की तिथि (गणतंत्र दिवस)।", en: "Date the Constitution came into force (Republic Day)." },
+  "26 Nov 1949": { hi: "संविधान अंगीकृत होने की तिथि (संविधान दिवस)।", en: "Date the Constitution was adopted (Constitution Day)." },
+  "Preamble": { hi: "संविधान की प्रस्तावना; इसके आदर्शों का सार।", en: "The Constitution's preamble; the essence of its ideals." },
+  "Part III": { hi: "मौलिक अधिकारों वाला भाग (अनुच्छेद 12–35)।", en: "The part containing Fundamental Rights (Articles 12–35)." },
+  "Article 32": { hi: "संवैधानिक उपचार; संविधान की 'आत्मा'।", en: "Constitutional Remedies; the 'soul' of the Constitution." },
+  "Right to Equality": { hi: "अनुच्छेद 14–18 के अंतर्गत समानता का अधिकार।", en: "The right to equality under Articles 14–18." },
+  "Lok Sabha": { hi: "संसद का निम्न सदन, प्रत्यक्ष निर्वाचित।", en: "The lower house of Parliament, directly elected." },
+  "Rajya Sabha": { hi: "संसद का उच्च सदन, राज्यों का परिषद।", en: "The upper house of Parliament, the council of states." },
+  "Money Bill": { hi: "धन विधेयक; केवल लोक सभा में प्रस्तुत होता है।", en: "A money bill; can be introduced only in the Lok Sabha." },
+  "Primary sector": { hi: "कृषि व प्राकृतिक संसाधन आधारित क्षेत्र।", en: "Agriculture and natural-resource-based sector." },
+  "Secondary sector": { hi: "विनिर्माण व उद्योग का क्षेत्र।", en: "Manufacturing and industry sector." },
+  "Tertiary sector": { hi: "सेवा क्षेत्र; भारत के जीडीपी में सबसे बड़ा।", en: "The services sector; largest in India's GDP." },
+  "NITI Aayog": { hi: "योजना आयोग का उत्तराधिकारी नीति-थिंक टैंक।", en: "The policy think-tank that replaced the Planning Commission." },
+  "RBI": { hi: "भारत का केंद्रीय बैंक; मौद्रिक नीति का संचालक।", en: "India's central bank; runs monetary policy." },
+  "Monetary policy": { hi: "मुद्रा-आपूर्ति व मुद्रास्फीति का RBI द्वारा नियंत्रण।", en: "RBI's control of money supply and inflation." },
+  "Repo rate": { hi: "वह दर जिस पर RBI बैंकों को ऋण देता है।", en: "The rate at which the RBI lends to banks." },
+  "Fiscal policy": { hi: "सरकार की कराधान व व्यय नीति (बजट)।", en: "The government's taxation and spending policy (the budget)." },
+  "Tourism": { hi: "चार धाम व हिल स्टेशन — राज्य का प्रमुख क्षेत्र।", en: "Char Dham and hill stations — a key state sector." },
+  "Hydropower": { hi: "नदियों पर जलविद्युत — उत्तराखंड का प्रमुख ऊर्जा स्रोत।", en: "River hydropower — a major energy source for Uttarakhand." },
+  "Horticulture": { hi: "सेब, फल व औषधीय पौधों की पर्वतीय बागवानी।", en: "Hill cultivation of apples, fruits and medicinal plants." },
+  "Char Dham": { hi: "बद्रीनाथ, केदारनाथ, गंगोत्री व यमुनोत्री तीर्थ।", en: "The Badrinath, Kedarnath, Gangotri and Yamunotri shrines." },
 };
 
 export const topicById = (id) => {
